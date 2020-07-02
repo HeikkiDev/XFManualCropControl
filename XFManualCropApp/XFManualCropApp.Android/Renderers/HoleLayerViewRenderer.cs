@@ -51,15 +51,14 @@ namespace XFManualCropApp.Droid.Renderers
                 return;
             }
 
-            double scaleWidth = _screenPixelsWidth / Element.Width;
-            double scaleHeight = _screenPixelsHeight / Element.Height;
+            double scale = _screenPixelsWidth / Element.Width;
 
             var points = new Path();
-            points.MoveTo((float)(_holeLayerView.TopLeftCorner.X * scaleWidth), (float)(_holeLayerView.TopLeftCorner.Y * scaleHeight));
-            points.LineTo((float)(_holeLayerView.TopRightCorner.X * scaleWidth), (float)(_holeLayerView.TopRightCorner.Y * scaleHeight));
-            points.LineTo((float)(_holeLayerView.BottomRightCorner.X * scaleWidth), (float)(_holeLayerView.BottomRightCorner.Y * scaleHeight));
-            points.LineTo((float)(_holeLayerView.BottomLeftCorner.X * scaleWidth), (float)(_holeLayerView.BottomLeftCorner.Y * scaleHeight));
-            points.LineTo((float)(_holeLayerView.TopLeftCorner.X * scaleWidth), (float)(_holeLayerView.TopLeftCorner.Y * scaleHeight));
+            points.MoveTo((float)(_holeLayerView.TopLeftCorner.X * scale), (float)(_holeLayerView.TopLeftCorner.Y * scale));
+            points.LineTo((float)(_holeLayerView.TopRightCorner.X * scale), (float)(_holeLayerView.TopRightCorner.Y * scale));
+            points.LineTo((float)(_holeLayerView.BottomRightCorner.X * scale), (float)(_holeLayerView.BottomRightCorner.Y * scale));
+            points.LineTo((float)(_holeLayerView.BottomLeftCorner.X * scale), (float)(_holeLayerView.BottomLeftCorner.Y * scale));
+            points.LineTo((float)(_holeLayerView.TopLeftCorner.X * scale), (float)(_holeLayerView.TopLeftCorner.Y * scale));
             points.Close();
 
             var transparentPaint = new Paint { Color = Color.Transparent };
