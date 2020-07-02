@@ -17,7 +17,6 @@ namespace XFManualCropApp.Droid.Renderers
         private HoleLayerView _holeLayerView;
         private bool _drawRectangle;
         private int _screenPixelsWidth;
-        private int _screenPixelsHeight;
 
         public HoleLayerViewRenderer(Context context) : base(context)
         {
@@ -41,7 +40,6 @@ namespace XFManualCropApp.Droid.Renderers
             var displayMetrics = new DisplayMetrics();
             CrossCurrentActivity.Current.Activity.WindowManager.DefaultDisplay.GetMetrics(displayMetrics);
             _screenPixelsWidth = displayMetrics.WidthPixels;
-            _screenPixelsHeight = displayMetrics.HeightPixels;
         }
 
         protected override void OnDraw(Canvas canvas)
@@ -51,7 +49,7 @@ namespace XFManualCropApp.Droid.Renderers
                 return;
             }
 
-            double scale = _screenPixelsWidth / Element.Width;
+            var scale = _screenPixelsWidth / Element.Width;
 
             var points = new Path();
             points.MoveTo((float)(_holeLayerView.TopLeftCorner.X * scale), (float)(_holeLayerView.TopLeftCorner.Y * scale));

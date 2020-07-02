@@ -31,7 +31,8 @@ namespace XFManualCropApp.iOS.Renderers
             UIWindow window = UIApplication.SharedApplication.KeyWindow;
             UIView superView = window.RootViewController.GetViewControllerOnTopOfStack().View;
             _layerWidth = superView.Bounds.Width;
-            _layerHeight = superView.Bounds.Height;
+            _layerHeight = superView.Bounds.Height - (window.SafeAreaInsets.Bottom + window.SafeAreaInsets.Top);
+
             _nativeView = new UIView(new CGRect(x: 0, y: 0, width: _layerWidth, height: _layerHeight));
             _nativeView.BackgroundColor = UIColor.Clear;
             SetNativeControl(_nativeView);
@@ -43,23 +44,14 @@ namespace XFManualCropApp.iOS.Renderers
 
             _holeLayerView = (HoleLayerView)e.NewElement;
             _holeLayerView.DrawRectangleHole += HoleLayerViewOnDrawRectangleHole;
-
-            var topLeft = _holeLayerView.TopLeftCorner;
-            var topRight = _holeLayerView.TopRightCorner;
-            var bottomRight = _holeLayerView.BottomRightCorner;
-            var bottomLeft = _holeLayerView.BottomLeftCorner;
-            _holeLayerView.TopLeftCorner = topLeft;
-            _holeLayerView.TopRightCorner = topRight;
-            _holeLayerView.BottomRightCorner = bottomRight;
-            _holeLayerView.BottomLeftCorner = bottomLeft;
         }
 
         private void HoleLayerViewOnDrawRectangleHole(object sender, EventArgs e)
         {
-            Point firstCorner = _holeLayerView.TopLeftCorner;
-            Point secondCorner = _holeLayerView.TopRightCorner;
-            Point thirstCorner = _holeLayerView.BottomRightCorner;
-            Point fourthCorner = _holeLayerView.BottomLeftCorner;
+            var firstCorner = _holeLayerView.TopLeftCorner;
+            var secondCorner = _holeLayerView.TopRightCorner;
+            var thirstCorner = _holeLayerView.BottomRightCorner;
+            var fourthCorner = _holeLayerView.BottomLeftCorner;
 
             var overlayPath = UIBezierPath.FromRect(_nativeView.Bounds);
 

@@ -4,8 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:XFManualCropApp.Controls;assembly=XFManualCropApp"
+             xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              mc:Ignorable="d"
-             x:Class="XFManualCropApp.MainPage">
+             x:Class="XFManualCropApp.MainPage"
+             iOsSpecific:Page.UseSafeArea="true">
 
     <Grid>
         <Image x:Name="CropImage" BackgroundColor="Yellow" Source="wallpaper.png"/>

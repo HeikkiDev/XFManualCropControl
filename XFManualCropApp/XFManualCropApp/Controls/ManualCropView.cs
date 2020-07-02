@@ -121,6 +121,11 @@ namespace XFManualCropApp.Controls
 
             _absoluteLayoutWidth = absoluteLayout.Width;
             _absoluteLayoutHeight = absoluteLayout.Height;
+
+            if (_sizeChangedTask.Task.IsCompleted)
+            {
+                return;
+            }
             _sizeChangedTask.SetResult(true);
         }
 
@@ -186,7 +191,7 @@ namespace XFManualCropApp.Controls
                     _boxViewTopLeft.TranslationX = pointTranslationX;
                     _boxViewTopLeft.TranslationY = pointTranslationY;
 
-                    Point pointToUpdate = _rectangleHoleLayer.TopLeftCorner;
+                    var pointToUpdate = _rectangleHoleLayer.TopLeftCorner;
                     pointToUpdate.X = holeTranslationX;
                     pointToUpdate.Y = holeTranslationY;
 

@@ -24,12 +24,6 @@ namespace XFManualCropApp
 
             _pageLoaded = true;
             CropView.Initialize();
-
-            //var topLeft = new Point(50, 100);
-            //var topRight = new Point(300, 100);
-            //var bottomRight = new Point(300, 600);
-            //var bottomLeft = new Point(50, 600);
-            //CropView.Initialize(topLeft, topRight, bottomRight, bottomLeft);
         }
     }
 }
