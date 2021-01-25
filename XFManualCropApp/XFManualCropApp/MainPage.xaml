@@ -5,13 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:XFManualCropApp.Controls;assembly=XFManualCropApp"
              xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              mc:Ignorable="d"
              x:Class="XFManualCropApp.MainPage"
              iOsSpecific:Page.UseSafeArea="true">
 
     <Grid>
-        <Image x:Name="CropImage" BackgroundColor="Yellow" Source="wallpaper.png"/>
-        <controls:ManualCropView x:Name="CropView" />
+        <Image x:Name="CroppedImageView" BackgroundColor="Pink" IsVisible="False"/>
+        <skia:SKCanvasView x:Name="CropImageCanvas" BackgroundColor="White"/>
+        <controls:ManualCropView x:Name="ManualCropView" />
+        <Button x:Name="CropButton" VerticalOptions="End" 
+                Text="Crop!" 
+                FontSize="Large"
+                Clicked="CropButton_OnClicked"/>
+        <Button x:Name="DisplayCroppedButton" IsVisible="False" VerticalOptions="End" 
+                Text="Show cropped image from byte[]" 
+                FontSize="Large"
+                Clicked="DisplayCroppedButton_OnClicked"/>
     </Grid>
 
 </ContentPage>
