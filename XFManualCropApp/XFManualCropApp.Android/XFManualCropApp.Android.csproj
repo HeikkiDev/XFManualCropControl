@@ -89,15 +89,14 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\drawable" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFManualCropApp\XFManualCropApp.csproj">
       <Project>{17762D9F-1906-4711-83FF-95A738F0BE99}</Project>
       <Name>XFManualCropApp</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\wallpaper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

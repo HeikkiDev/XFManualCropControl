@@ -135,7 +135,4 @@
       <Name>XFManualCropApp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\wallpaper.png" />
-  </ItemGroup>
 </Project>
